@@ -1,0 +1,19 @@
+
+module mypol 1.0;
+
+require {
+	type httpd_t;
+	type user_home_t;
+	type httpd_sys_content_t;
+	class file { read write unlink };
+	class dir write;
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t httpd_sys_content_t:dir write;
+allow httpd_t user_home_t:file unlink;
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t user_home_t:file { read write };
