@@ -30,11 +30,6 @@
         {% endjavascripts %}
  
         
-        {%  if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHETICATED_FULLY') %}
-        <h2>Welcome Back {{ app.user.username }}!</h2>
-        {% else %}
-            
-        {% endif %}
     {% endblock %}
 </head>
 

@@ -9,3 +9,30 @@ _admin:
 _user:
     path: /user/{id}
     defaults: { _controller: ToDoToDoBundle:Default:user }
+    
+ToDoToDoBundle_todoitems:
+    resource: "@ToDoToDoBundle/Resources/config/routing/todoitems.yml"
+    prefix:   /todoitems
+    
+_login:
+    pattern:  /login
+    defaults: { _controller: ToDoToDoBundle:Security:login }
+    #schemes: [https]
+
+_login_check:
+    pattern:  /login_check
+    defaults: { _controller: ToDoToDoBundlee:Security:loginCheck }
+    #schemes: [https]
+
+_logout:
+    pattern:  /logout
+    defaults: { _controller: ToDoToDoBundle:Security:logout }
+
+_change_password:
+    pattern:  /change_password
+    defaults: { _controller: KitServerKatBundle:Security:changePassword }
+    #requirements: { _method: post }
+    #schemes: [https]
+    #options:
+    #  expose: true
+        

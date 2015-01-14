@@ -21,12 +21,24 @@ class DefaultController extends Controller
         return $this->render('ToDoToDoBundle:Default:admin.html.twig');
     }
     
+    /*
     public function userAction($id)
     {
         //if ((false === $this->get('security.context')->isGranted('ROLE_USER'))) {
         //    throw new AccessDeniedException();
         //}
-        //return new Response("User page id =".$id);
-        return $this->render('ToDoToDoBundle:Default:user.html.twig', array('id' => $id));
+        
+        $em = $this->getDoctrine()->getManager();
+
+        //$entities = $em->getRepository('KitServerKatBundle:Autista')->findAll();
+        $entities = $em->getRepository('ToDoToDoBundle:Todoitems')->findBy($id);
+
+        
+        return $this->render('ToDoToDoBundle:Default:user.html.twig', array(
+            'id' => $id,
+            'entities' => $entities));
     }
+     */
+    
+    
 }
