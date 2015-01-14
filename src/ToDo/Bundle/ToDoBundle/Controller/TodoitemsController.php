@@ -21,6 +21,10 @@ class TodoitemsController extends Controller
      */
     public function indexAction()
     {
+        if ((false === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
+            throw new AccessDeniedException();
+        }
+        
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('ToDoToDoBundle:Todoitems')->findAll();
@@ -35,6 +39,10 @@ class TodoitemsController extends Controller
      */
     public function createAction(Request $request)
     {
+        if ((true === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
+            throw new AccessDeniedException();
+        }
+        
         $entity = new Todoitems();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -62,7 +70,7 @@ class TodoitemsController extends Controller
      */
     private function createCreateForm(Todoitems $entity)
     {
-        var_dump($this->getUser());
+       
         $form = $this->createForm(new TodoitemsType(), $entity, array(
             'action' => $this->generateUrl('todoitems_create'),
             'method' => 'POST',
@@ -80,6 +88,10 @@ class TodoitemsController extends Controller
      */
     public function newAction()
     {
+        if ((true === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
+            throw new AccessDeniedException();
+        }
+        
         $entity = new Todoitems();
         $form   = $this->createCreateForm($entity);
 
@@ -117,6 +129,7 @@ class TodoitemsController extends Controller
      */
     public function editAction($id)
     {
+        
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ToDoToDoBundle:Todoitems')->find($id);

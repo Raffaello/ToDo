@@ -214,7 +214,10 @@ class User implements AdvancedUserInterface, \Serializable
 
     public function getRoles()
     {
-        return array();
+        if($this->getIsadmin() == true)
+            return array('ROLE_ADMIN');
+        else
+            return array('ROLE_USER');
     }
 
     /**

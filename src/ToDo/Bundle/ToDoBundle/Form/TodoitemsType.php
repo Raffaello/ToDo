@@ -16,11 +16,16 @@ class TodoitemsType extends AbstractType
     {
         $userid = $options['id'];
         $builder
-            
+            ->add('user_id', 'integer', array(
+                'read_only' => true,
+                'required' => true,
+                'data' => $userid
+            ))
             ->add('status')
             ->add('description')
             ->add('duedate')
-            ->add('userid','entity', array(
+            /*
+                ->add('userid','entity', array(
                 'class'         => 'ToDoToDoBundle:User',
                 'property'      => 'id',
                 'required'      => true,
@@ -31,6 +36,8 @@ class TodoitemsType extends AbstractType
                         return $er->qbfindById($id);
                     }
             ))
+             * 
+             */
         ;
     }
     
