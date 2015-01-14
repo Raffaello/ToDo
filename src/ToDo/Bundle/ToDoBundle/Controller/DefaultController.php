@@ -14,12 +14,18 @@ class DefaultController extends Controller
     
     public function adminAction()
     {
+        //if ((false === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
+        //    throw new AccessDeniedException();
+        //}
         //return new Response("Admin page");
         return $this->render('ToDoToDoBundle:Default:admin.html.twig');
     }
     
     public function userAction($id)
     {
+        //if ((false === $this->get('security.context')->isGranted('ROLE_USER'))) {
+        //    throw new AccessDeniedException();
+        //}
         //return new Response("User page id =".$id);
         return $this->render('ToDoToDoBundle:Default:user.html.twig', array('id' => $id));
     }

@@ -1,5 +1,9 @@
 {% extends 'ToDoToDoBundle:Default:header.html.twig' %}
 
 {% block body %}
-hello admin
-{% endblock %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <h3>hello</h3>
+    {% else %}
+        <h2>Access denied!</h2>
+    {% endif %}
+{% endblock %}  

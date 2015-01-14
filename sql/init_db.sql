@@ -1,4 +1,4 @@
-CREATE TABLE Users
+CREATE TABLE IF NOT EXISTS Users
 (
     id INTEGER PRIMARY KEY, 
     email    varchar(25), 
@@ -7,7 +7,7 @@ CREATE TABLE Users
 );
 
 
-CREATE TABLE IF NOT EXISTS ToDoItem
+CREATE TABLE IF NOT EXISTS ToDoItems
 (
     id INTEGER PRIMARY KEY,
     user_id INTEGER, 
