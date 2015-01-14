@@ -1,3 +1,11 @@
-app:
-    resource: @AppBundle/Controller/
-    type:     annotation
+to_do_to_do:
+    resource: "@ToDoToDoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#security_login_login:
+#    resource: "@SecurityLoginLoginBundle/Resources/config/routing.yml"
+#    prefix:   /
+
+#app:
+#    resource: @AppBundle/Controller/
+#    type:     annotation

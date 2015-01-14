@@ -1,0 +1,57 @@
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    {% block stylesheets %}
+         {% stylesheets
+            '%kernel.root_dir%/../bower_components/bootstrap/dist/css/bootstrap.min.css'
+            '%kernel.root_dir%/../bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
+            filter="cssrewrite"
+            output='css/bootstrap.min.css'
+        %}
+            <link href={{ asset_url }}  rel="stylesheet" type="text/css" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    {% block javascripts_head %}
+        {% javascripts
+            '%kernel.root_dir%/../bower_components/jquery/dist/jquery.min.js'
+            '%kernel.root_dir%/../bower_components/bootstrap/dist/js/bootstrap.min.js'
+            filter='?uglifyjs'
+            output='js/header.min.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+ 
+        
+        {%  if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHETICATED_FULLY') %}
+        <h2>Welcome Back {{ app.user.username }}!</h2>
+        {% else %}
+            
+        {% endif %}
+    {% endblock %}
+</head>
+
+<body {% block body_attr %}{% endblock %}>
+{% endspaceless %}
+{% block body %}
+{%endblock %}
+<div class="container">
+    {% block container %}
+    {% endblock %}
+</div>
+<div class="container-fluid">
+    {% block container_fluid %}
+    {% endblock %}
+</div>
+{% spaceless %}
+</body>
+
+</html>
+{% endspaceless %}

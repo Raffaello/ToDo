@@ -1,0 +1,11 @@
+to_do_to_do_homepage:
+    path:     /
+    defaults: { _controller: ToDoToDoBundle:Default:index }
+    
+_admin:
+    path: /admin
+    defaults: { _controller: ToDoToDoBundle:Default:admin }
+    
+_user:
+    path: /user/{id}
+    defaults: { _controller: ToDoToDoBundle:Default:user }

@@ -1,0 +1,7 @@
+parameters:
+#    to_do_to_do.example.class: ToDo\Bundle\ToDoBundle\Example
+
+services:
+#    to_do_to_do.example:
+#        class: %to_do_to_do.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

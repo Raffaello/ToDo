@@ -1,0 +1,22 @@
+{
+  "name": "ToDo",
+  "version": "1.0.0",
+  "authors": [
+    "Raffaello Bertini <raffaellobertini@gmail.com>"
+  ],
+  "description": "front-end dependencies",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "**"
+  ],
+  
+  "dependencies": {
+    "bootstrap": "*"
+  }
+}
