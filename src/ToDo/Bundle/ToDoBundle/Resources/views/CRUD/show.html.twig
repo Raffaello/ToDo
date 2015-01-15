@@ -1,0 +1,15 @@
+{% extends 'ToDoToDoBundle:Default:header.html.twig' %}
+
+{% block container %}
+    {%  block tableTitle %}
+    {% endblock %}
+    <table>
+        <tbody>
+            {% block tableBody %}
+            {% endblock %}
+        </tbody>
+    </table>
+    {% block misc %}
+    {% endblock %}
+{% endblock %}
+

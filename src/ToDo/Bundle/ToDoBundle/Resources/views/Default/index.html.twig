@@ -1,8 +1,11 @@
 {% extends 'ToDoToDoBundle:Default:header.html.twig' %}
 
-{% block body %}
+{% block container_fluid %}
     {%  if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHETICATED_FULLY') %}
         <h2>Welcome Back {{ app.user.username }}!</h2>
+        <a class="btn btn-default" href={{path('_logout')}}>Logout</a>
+        <a class="btn btn-default" href={{path('todoitems')}}>todoitems lists</a>
+        
     {% else %}
         <h2>please login first...</h2>
         <a class="btn btn-default" href={{path('_login')}}>Login</a>

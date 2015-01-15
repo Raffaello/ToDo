@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ToDo\Bundle\ToDoBundle\Entity\Todoitems;
 use ToDo\Bundle\ToDoBundle\Form\TodoitemsType;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Todoitems controller.
@@ -21,14 +22,17 @@ class TodoitemsController extends Controller
      */
     public function indexAction()
     {
-        if ((false === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
-            throw new AccessDeniedException();
-        }
-        
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ToDoToDoBundle:Todoitems')->findAll();
-
+        
+        if ((false === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
+            //filter about user
+            //var_dump($this->getUser()->getId());
+            $entities = $em->getRepository('ToDoToDoBundle:Todoitems')->findByUserId($this->getUser()->getId());
+        }
+        else
+        {
+            $entities = $em->getRepository('ToDoToDoBundle:Todoitems')->findAll();
+        }
         return $this->render('ToDoToDoBundle:Todoitems:index.html.twig', array(
             'entities' => $entities,
         ));

@@ -1,0 +1,23 @@
+{% extends 'ToDoToDoBundle:CRUD:base.html.twig' %}
+{% import 'ToDoToDoBundle:CRUD:actions.html.twig' as actions %}
+
+{% block container %}
+    <h1>{{ title }}</h1>
+    {{ form_start(form) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ title }}
+        </div>
+        <div class="panel-body">
+            {% block form_rows %}
+            {% endblock %}
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ form_widget(form.submit, {'attr': {'class':'btn btn-info'} } ) }}
+            </div>
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% macro show(route,text) %}
+     {#<a class="btn btn-info btn-sm glyphicon glyphicon-{{ icon|default('info-sign') }}" href="{{ route }}"> </a>#}
+    <a class="btn btn-info bt-tooltip" href='{{ route }}' data-toggle="tooltip" data-placement="top" title="Show">{{ text|default('Show') }}</a>
+{% endmacro %}
+
+{% macro edit(route,text, addclass) %}
+    <a class="btn btn-warning bt-tooltip {{ addclass|default('') }}" href='{{ route }}' data-toggle="tooltip" data-placement="top" title="Edit">{{ text|default('Edit') }}</a>
+{% endmacro %}
+
+{% macro new(route,text) %}
+    <a class="btn btn-info" href='{{ route }}'>{{ text|default(' ') }}</a>
+{% endmacro %}

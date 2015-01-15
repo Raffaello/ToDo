@@ -1,0 +1,34 @@
+{% extends 'ToDoToDoBundle:Default:header.html.twig' %}
+{% import 'ToDoToDoBundle:CRUD:actions.html.twig' as actions %}
+
+{%block javascripts %}
+    {{ parent() }}
+    <script>$('#form_delete').submit();</script>
+{% endblock %}
+
+{% block container %}
+    <h1>{{ title }}</h1>
+    {{ form_start(edit_form) }}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ title }}
+        </div>
+        <div class="panel-body">
+            {% block form_rows %}
+            {% endblock %}
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ form_widget(edit_form.submit, {'attr': {'class':'btn btn-info'} } ) }}
+                <div class="pull-right">
+                    <a id="delete" class="btn btn-danger"> Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_rest(edit_form) }}
+    {{ form_end(edit_form) }}
+    <div class="hidden">
+        {{ form(delete_form, {'attr': {'class':'form-inline', 'id':'form_delete'}}) }}
+    </div>
+{% endblock %}

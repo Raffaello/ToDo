@@ -1,16 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'ToDoToDoBundle:CRUD:edit.html.twig' %}
 
-{% block body -%}
-    <h1>Todoitems edit</h1>
+{% set title="Edit" %}
 
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('todoitems') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block form_rows %}
+    {{ form_errors(edit_form)  }}
+    {{ form_row(edit_form.user_id) }}
+    {{ form_row(edit_form.status) }}
+    {{ form_row(edit_form.description) }}
+    {{ form_row(edit_form.duedate) }}
 {% endblock %}
+

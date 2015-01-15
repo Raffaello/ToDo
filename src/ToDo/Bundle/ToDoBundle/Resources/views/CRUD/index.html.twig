@@ -1,0 +1,44 @@
+{% extends 'ToDoToDoBundle:Default:header.html.twig' %}
+
+{% block container %}
+    <div class="row">
+    {%  block tableTitle %}
+    {% endblock %}
+    </div>
+    <div class="row">    
+    {% block misc %}
+    {% endblock %}
+    </div>
+    <br></br>
+{% endblock %}
+
+{% block container_fluid %}
+    {% block tableTag %}
+    <table>
+    {% endblock %}
+        <thead>
+        <tr>
+        {% block tableHeader %}
+        {% endblock %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            {% block tableBody_tr %}
+            <tr>
+            {% endblock %}
+            {% block tableBody %}
+            {% endblock %}
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+            {% block tableFooter %}
+            {% endblock %}
+            </tr>
+            <tr>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

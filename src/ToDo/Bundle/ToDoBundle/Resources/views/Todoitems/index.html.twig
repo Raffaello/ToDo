@@ -1,47 +1,32 @@
-{% extends '::base.html.twig' %}
+{% extends 'ToDoToDoBundle:CRUD:index.html.twig' %}   
+{% import 'ToDoToDoBundle:CRUD:actions.html.twig' as actions %}
 
-{% block body -%}
-    <h1>Todoitems list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Userid</th>
-                <th>Status</th>
-                <th>Description</th>
-                <th>Duedate</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('todoitems_show', { 'id': entity.id }) }}">{{ entity.userId }}</a></td>
-                <td>{{ entity.status }}</td>
-                <td>{{ entity.description }}</td>
-                <td>{% if entity.duedate %}{{ entity.duedate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.id }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('todoitems_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('todoitems_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('todoitems_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% block tableTitle %}
+    <h1>Todo list</h1>
+{% endblock %}
+{% block tableHeader %}
+    <th>Userid</th>
+    <th>Status</th>
+    <th>Description</th>
+    <th>Duedate</th>
+    <th>Id</th>
+    <th>Actions</th>
+{% endblock %}
+{% block tableBody %}
+        <td><a href="{{ path('todoitems_show', { 'id': entity.id }) }}">{{ entity.userId }}</a></td>
+        <td>{{ entity.status }}</td>
+        <td>{{ entity.description }}</td>
+        <td>{% if entity.duedate %}{{ entity.duedate|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{{ entity.id }}</td>
+        <td>
+         <div class="btn-group">
+            {{ actions.show(path('todoitems_show', { 'id': entity.id })) }}
+            {{ actions.edit(path('todoitems_edit', { 'id': entity.id })) }}
+{% endblock %}
+{% block misc %}
+    {{ actions.new(path('todoitems_new'),'New') }}
+    <a class="btn btn-success" href="{{ path('to_do_to_do_homepage') }}">Home</a>
+        </div>
+    </td>
+{% endblock %}
