@@ -15,6 +15,7 @@ class TodoitemsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $userid = $options['id'];
+
         $builder
             ->add('user_id', 'integer', array(
                 'read_only' => true,

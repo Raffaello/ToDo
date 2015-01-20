@@ -1,44 +1,39 @@
-{% extends 'ToDoToDoBundle:Default:header.html.twig' %}
+{% extends 'ToDoToDoBundle:CRUD:show.html.twig' %}   
+{% import 'ToDoToDoBundle:CRUD:actions.html.twig' as actions %}
 
-{% block container_fluid %}
-    <h1>Todoitems</h1>
+{% set title="Show" %}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Userid</th>
-                <td>{{ entity.userId }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ entity.status }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Duedate</th>
-                <td>{{ entity.duedate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('todoitems') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('todoitems_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block tableTitle %}
+    <h2>{{ title }}</h2>
 {% endblock %}
+
+{% block tableBody %}
+    <tr>
+        <th>Userid</th>
+        <td>{{ entity.userId }}</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>{{ entity.status }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ entity.description }}</td>
+    </tr>
+    <tr>
+        <th>Duedate</th>
+        <td>{{ entity.duedate|date('Y-m-d H:i:s') }}</td>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+    </tr>
+{% endblock %}
+
+{% block misc %}
+    {{ actions.new(path('todoitems_new'),'New') }}
+    <a class="btn btn-success" href="{{ path('to_do_to_do_homepage') }}">Home</a>
+        </div>
+    </td>
+{% endblock %}
+

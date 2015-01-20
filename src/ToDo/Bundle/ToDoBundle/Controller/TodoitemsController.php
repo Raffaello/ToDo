@@ -164,6 +164,7 @@ class TodoitemsController extends Controller
         $form = $this->createForm(new TodoitemsType(), $entity, array(
             'action' => $this->generateUrl('todoitems_update', array('id' => $entity->getId())),
             'method' => 'PUT',
+            'id' => $this->getUser()->getId(),
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -191,7 +192,7 @@ class TodoitemsController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('todoitems_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('todoitems_show', array('id' => $id)));
         }
 
         return $this->render('ToDoToDoBundle:Todoitems:edit.html.twig', array(
