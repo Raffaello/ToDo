@@ -23,7 +23,8 @@ class TodoitemsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+        var_dump($this->getUser());
+        //die();
         if ((false === $this->get('security.context')->isGranted('ROLE_ADMIN'))) {
             //filter about user
             //var_dump($this->getUser()->getId());

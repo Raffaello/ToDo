@@ -8,7 +8,8 @@ security:
 
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_ADMIN:       ROLE_USER, ROLE_OAUTH
+        ROLE_OAUTH:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
@@ -20,8 +21,8 @@ security:
         #            user1:  { password: userpass1, roles: [ 'ROLE_USER' ] }
         #            user2:  { password: userpass2, roles: [ 'ROLE_USER' ] }
         #            admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-        #hwi_provider:
-        #    id: to_do_to_do.oauth_user_provider.class
+        hwi_provider:
+            id: to_do_to_do.oauth_user_provider
 
     firewalls:
         dev:

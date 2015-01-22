@@ -5,7 +5,7 @@ namespace ToDo\Bundle\ToDoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider as BaseOAuthUserProvider;
+//use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider as BaseOAuthUserProvider;
 
 /**
  * Users
@@ -16,9 +16,9 @@ use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider as BaseOAuthUser
  */
  
 //class User implements AdvancedUserInterface, \Serializable
-class User extends BaseOAuthUserProvider
+class User implements AdvancedUserInterface, \Serializable
 {
-    
+
     /**
      * @var string
      *
@@ -79,6 +79,7 @@ class User extends BaseOAuthUserProvider
         $this->salt = "";
         $this->isActive = true;
     }
+    
     
     /**
      * @inheritDoc

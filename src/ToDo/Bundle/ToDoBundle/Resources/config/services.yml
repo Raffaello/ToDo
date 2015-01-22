@@ -1,11 +1,25 @@
 parameters:
 #    to_do_to_do.example.class: ToDo\Bundle\ToDoBundle\Example
-    to_do_to_do.oauth_user_provider.class: ToDo\Bundle\ToDoBundle\Entity\User
+    to_do_to_do.oauth_user.class: ToDo\Bundle\ToDoBundle\Entity\User
+    to_do_to_do.oauth_user_provider.class: ToDo\Bundle\ToDoBundle\Entity\UserProvider
     
 
 services:
 #    to_do_to_do.example:
 #        class: %to_do_to_do.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    platform.user.manager:
+        class: "Doctrine\ORM\EntityManager"
+        factory-service: "doctrine"
+        factory-method: "getManagerForClass"
+        argument: %platform.entity.user.class%
+    
+    to_do_to_do.oauth_user.repository:
+        class: %to_do_to_do.oauth_user.class%
+        factory-service: "platform.user.manager"
+        factory-method: "getRepository"
+        argument: %platform.entity.user.class%        
+        
     to_do_to_do.oauth_user_provider:
-        class: %to_do_to_do.oauth_user_provider.class%
+       class: %to_do_to_do.oauth_user_provider.class%
+       id: to_do_to_do.oauth_user.repository

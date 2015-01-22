@@ -66,7 +66,7 @@ hwi_oauth:
             client_secret: abb574c60218f218369364eb072db3be
             scope: ""
         google:
-            type: twitter
+            type: google
             client_id: 15083729938-88ksbotrhc38423dvqfos1530buguebu.apps.googleusercontent.com
             client_secret: WWP0UcECtlbqDzRFkhhldJv7
 
