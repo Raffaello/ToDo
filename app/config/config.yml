@@ -63,12 +63,12 @@ hwi_oauth:
         facebook:
             type: facebook
             client_id: 814915438580392
-            client_secret: 814915438580392
+            client_secret: abb574c60218f218369364eb072db3be
             scope: ""
         google:
             type: twitter
-            client_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            client_id: 15083729938-88ksbotrhc38423dvqfos1530buguebu.apps.googleusercontent.com
+            client_secret: WWP0UcECtlbqDzRFkhhldJv7
 
     
 # Doctrine Configuration
