@@ -62,8 +62,8 @@ hwi_oauth:
     resource_owners:
         facebook:
             type: facebook
-            client_id: xxxxxxxxxxxxxxxxxxxxx
-            client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            client_id: 814915438580392
+            client_secret: 814915438580392
             scope: ""
         google:
             type: twitter
