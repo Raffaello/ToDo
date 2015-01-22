@@ -20,6 +20,8 @@ security:
         #            user1:  { password: userpass1, roles: [ 'ROLE_USER' ] }
         #            user2:  { password: userpass2, roles: [ 'ROLE_USER' ] }
         #            admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        #hwi_provider:
+        #    id: to_do_to_do.oauth_user_provider.class
 
     firewalls:
         dev:
@@ -29,6 +31,19 @@ security:
         secured_area:
             pattern:    ^/
             anonymous:  ~
+            oauth:
+                resource_owners:
+                    facebook:           "/login2/check-facebook"
+                    google:             "/login2/check-google"
+
+                login_path:        /login2
+                use_forward:       false
+                failure_path:      /login
+                
+                oauth_user_provider:                    
+                    service: to_do_to_do.oauth_user_provider
+
+           
             form_login:
                 check_path: _login_check
                 login_path: _login
@@ -51,3 +66,11 @@ security:
         - { path: ^/admin,    roles: ROLE_ADMIN }
         - { path: ^/user,    roles: ROLE_USER }
         - { path: ^/todoitems, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+# app/config/security.yml
+
+
+
+    access_control:
+        

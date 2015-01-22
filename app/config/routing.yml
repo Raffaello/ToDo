@@ -1,3 +1,19 @@
+# app/config/routing.yml
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login2
+    
+facebook_login:
+    pattern: /login2/check-facebook
+
+google_login:
+    pattern: /login2/check-google
+
+    
 to_do_to_do:
     resource: "@ToDoToDoBundle/Resources/config/routing.yml"
     prefix:   /

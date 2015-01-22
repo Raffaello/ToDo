@@ -1,7 +1,11 @@
 parameters:
 #    to_do_to_do.example.class: ToDo\Bundle\ToDoBundle\Example
+    to_do_to_do.oauth_user_provider.class: ToDo\Bundle\ToDoBundle\Entity\User
+    
 
 services:
 #    to_do_to_do.example:
 #        class: %to_do_to_do.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    to_do_to_do.oauth_user_provider:
+        class: %to_do_to_do.oauth_user_provider.class%

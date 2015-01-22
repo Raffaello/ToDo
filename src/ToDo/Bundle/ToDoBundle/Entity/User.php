@@ -5,6 +5,7 @@ namespace ToDo\Bundle\ToDoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider as BaseOAuthUserProvider;
 
 /**
  * Users
@@ -14,7 +15,8 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ORM\Entity(repositoryClass="ToDo\Bundle\ToDoBundle\Entity\Repository\UserRepository")
  */
  
-class User implements AdvancedUserInterface, \Serializable
+//class User implements AdvancedUserInterface, \Serializable
+class User extends BaseOAuthUserProvider
 {
     
     /**
