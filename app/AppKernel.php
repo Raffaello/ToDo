@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             //new Security\Login\LoginBundle\SecurityLoginLoginBundle(),
             new ToDo\Bundle\ToDoBundle\ToDoToDoBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            //new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -18,9 +18,9 @@
 --     FOREIGN KEY(user_id) REFERENCES Users(id)
 -- );
 
-DELETE FROM Users;
-VACUUM;
-insert into Users(id, email, password, isAdmin, username, salt, is_active) VALUES
-(1, '', 'admin', 1, 'admin', '', 1),
-(2, '', 'user1', 0, 'user1', '', 1),
-(3, '', 'user2', 0, 'user2', '', 1);
+--DELETE FROM Users;
+--VACUUM;
+--insert into Users(id, email, password, isAdmin, username, salt, is_active) VALUES
+--(1, '', 'admin', 1, 'admin', '', 1),
+--(2, '', 'user1', 0, 'user1', '', 1),
+--(3, '', 'user2', 0, 'user2', '', 1);

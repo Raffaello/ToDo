@@ -23,6 +23,10 @@ security:
         #            admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         hwi_provider:
             id: to_do_to_do.oauth_user_provider
+            
+        #fos_userbundle:
+        #    id: fos_user.user_provider.username
+    
 
     firewalls:
         dev:
@@ -46,6 +50,9 @@ security:
 
            
             form_login:
+                #provider: fos_userbundle
+                #csrf_provider: form.csrf_provider
+                
                 check_path: _login_check
                 login_path: _login
                 

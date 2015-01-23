@@ -5,6 +5,7 @@ imports:
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }
+    translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -39,6 +40,11 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+#fos_user:
+#    db_driver: orm
+#    firewall_name: main
+#    user_class: ToDo\Bundle\ToDoBundle\Entity\User
+    
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: secured_area
